@@ -1,0 +1,26 @@
+{
+  "name": "@kolhe/eslint-config-ts",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "Sumit Kolhe <thesumitkolhe@gmail.com> (https://github.com/sumitkolhe/)",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.4.0",
+    "typescript": ">=3.9"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.11.0"
+  }
+}
