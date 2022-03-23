@@ -16,6 +16,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@kolhe/eslint-config-ts": "^0.1.0",
     "eslint-plugin-vue": "^8.5.0"
   },
   "devDependencies": {
