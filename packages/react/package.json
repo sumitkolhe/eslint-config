@@ -1,6 +1,6 @@
 {
   "name": "@kolhe/eslint-config-react",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "keywords": [],
   "license": "MIT",
@@ -19,7 +19,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@kolhe/eslint-config-ts": "^0.2.0",
+    "@kolhe/eslint-config-ts": "^0.2.1",
     "eslint-plugin-react": "^7.29.4"
   },
   "devDependencies": {
