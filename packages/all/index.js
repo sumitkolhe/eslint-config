@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['@kolhe/eslint-config-react', '@kolhe/eslint-config-vue'],
-}
+  extends: ['@kolhe/eslint-config-vue', '@kolhe/eslint-config-prettier'],
+};

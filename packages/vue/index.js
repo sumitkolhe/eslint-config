@@ -1,15 +1,39 @@
-module.exports = {
+const { defineConfig } = require('eslint-define-config');
+
+module.exports = defineConfig({
+  globals: {
+    // Reactivity Transform
+    $: 'readonly',
+    $$: 'readonly',
+    $ref: 'readonly',
+    $shallowRef: 'readonly',
+    $computed: 'readonly',
+    $customRef: 'readonly',
+    $toRef: 'readonly',
+  },
   overrides: [
     {
       files: ['*.vue'],
       parser: 'vue-eslint-parser',
       parserOptions: {
         parser: '@typescript-eslint/parser',
+        extraFileExtensions: ['.vue'],
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      globals: {
+        // script setup
+        defineProps: 'readonly',
+        defineEmits: 'readonly',
+        defineExpose: 'readonly',
+        withDefaults: 'readonly',
+
+        // RFC: https://github.com/vuejs/rfcs/discussions/430
+        defineOptions: 'readonly',
       },
       rules: {
-        'no-unused-vars': 'off',
         'no-undef': 'off',
-        '@typescript-eslint/no-unused-vars': 'off',
       },
     },
   ],
@@ -17,11 +41,21 @@ module.exports = {
   rules: {
     'vue/max-attributes-per-line': 'off',
     'vue/no-v-html': 'off',
-    'vue/require-prop-types': 'off',
-    'vue/require-default-prop': 'off',
     'vue/multi-word-component-names': 'off',
+    'vue/html-self-closing': [
+      'error',
+      {
+        html: {
+          void: 'always',
+          normal: 'always',
+          component: 'always',
+        },
+        svg: 'always',
+        math: 'always',
+      },
+    ],
 
-    // reactivity transform
+    // Reactivity Transform
     'vue/no-setup-props-destructure': 'off',
   },
-}
+});

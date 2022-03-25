@@ -10,15 +10,32 @@ yarn add -D eslint @kolhe/eslint-config
 
 ### Config `.eslintrc`
 
-```json
-{
-  "extends": "@kolhe"
-}
+```js
+module.exports = {
+  root: true,
+  extends: ['@kolhe/eslint-config'],
+  rules: {
+    // Your custom rules
+  },
+};
 ```
 
 > You don't need `.eslintignore` normally as it has been provided by the preset.
 
-### Add script for package.json
+### Config `.prettierrc`
+
+```json
+{
+  "singleQuote": true,
+  "semi": true,
+  "arrowParens": "avoid",
+  "jsxSingleQuote": true,
+  "endOfLine": "lf",
+  "trailingComma": "es5"
+}
+```
+
+### Add script for `package.json`
 
 For example:
 
@@ -36,10 +53,34 @@ Create `.vscode/settings.json`
 
 ```json
 {
-  "prettier.enable": false,
+  "prettier.enable": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "json",
+    "json5",
+    "jsonc",
+    "yaml"
+  ],
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "json",
+    "json5",
+    "jsonc",
+    "yaml"
+  ]
 }
 ```
 

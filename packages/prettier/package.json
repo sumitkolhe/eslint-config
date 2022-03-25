@@ -1,5 +1,5 @@
 {
-  "name": "@kolhe/eslint-config-vue",
+  "name": "@kolhe/eslint-config-prettier",
   "version": "0.2.1",
   "description": "",
   "keywords": [],
@@ -16,9 +16,11 @@
     "eslint": ">=7.4.0"
   },
   "dependencies": {
-    "@kolhe/eslint-config-ts": "^2.0.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-define-config": "^1.3.0",
-    "eslint-plugin-vue": "^8.5.0"
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-yml": "^0.14.0",
+    "prettier": "^2.6.0"
   },
   "devDependencies": {
     "eslint": "8.11.0"
