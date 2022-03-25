@@ -17,7 +17,7 @@ module.exports = {
   rules: {
     // Your custom rules
   },
-};
+}
 ```
 
 > You don't need `.eslintignore` normally as it has been provided by the preset.
@@ -27,11 +27,11 @@ module.exports = {
 ```json
 {
   "singleQuote": true,
-  "semi": true,
-  "arrowParens": "avoid",
-  "jsxSingleQuote": true,
+  "semi": false,
   "endOfLine": "lf",
-  "trailingComma": "es5"
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "printWidth": 100,
 }
 ```
 
