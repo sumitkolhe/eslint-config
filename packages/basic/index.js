@@ -1,4 +1,4 @@
-const { defineConfig } = require('eslint-define-config');
+const { defineConfig } = require('eslint-define-config')
 
 module.exports = defineConfig({
   env: {
@@ -264,4 +264,4 @@ module.exports = defineConfig({
     'jsonc/quote-props': 'off',
     'jsonc/quotes': 'off',
   },
-});
+})
