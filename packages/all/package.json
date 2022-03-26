@@ -20,7 +20,7 @@
     "eslint": ">=8.0.0"
   },
   "dependencies": {
-    "@kolhe/eslint-config-prettier": "^1.0.2",
+    "@kolhe/eslint-config-prettier": "^1.0.3",
     "@kolhe/eslint-config-vue": "^1.0.3"
   },
   "devDependencies": {
