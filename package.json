@@ -5,12 +5,14 @@
   "author": "Sumit Kolhe <thesumitkolhe@gmail.com> (https://github.com/sumitkolhe/)",
   "scripts": {
     "lint": "eslint . --ext .js,.ts,.json,.json5,.vue,.md --fix",
+    "format": "prettier --write .",
     "release": "lerna publish"
   },
   "devDependencies": {
     "@kolhe/eslint-config": "latest",
     "eslint": "^8.11.0",
     "lerna": "^4.0.0",
+    "prettier": "^2.6.1",
     "typescript": "^4.6.3"
   }
 }
