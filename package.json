@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint . --ext .js,.ts,.json,.json5,.vue,.md --fix",
     "format": "prettier --write .",
-    "release": "lerna publish"
+    "release": "lerna publish --conventional-commits"
   },
   "devDependencies": {
     "@kolhe/eslint-config": "latest",
