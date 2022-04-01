@@ -1,6 +1,5 @@
 {
   "name": "@kolhe/eslint-config",
-  "private": true,
   "license": "MIT",
   "author": "Sumit Kolhe <thesumitkolhe@gmail.com> (https://github.com/sumitkolhe/)",
   "scripts": {
