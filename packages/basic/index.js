@@ -33,7 +33,7 @@ module.exports = defineConfig({
   plugins: ['html', 'unicorn'],
   settings: {
     'import/resolver': {
-      node: { extensions: ['.js', '.mjs', '.ts', '.d.ts'] },
+      node: { extensions: ['.js', '.mjs'] },
     },
   },
   overrides: [
