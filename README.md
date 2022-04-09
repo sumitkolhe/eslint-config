@@ -8,7 +8,7 @@
 yarn add -D eslint @kolhe/eslint-config
 ```
 
-### Config `.eslintrc`
+### Config `.eslintrc.js`
 
 ```js
 module.exports = {
