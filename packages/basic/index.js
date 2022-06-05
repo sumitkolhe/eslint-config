@@ -12,7 +12,6 @@ module.exports = defineConfig({
     'plugin:eslint-comments/recommended',
     'plugin:jsonc/recommended-with-jsonc',
     'plugin:yml/standard',
-    'plugin:markdown/recommended',
   ],
   ignorePatterns: [
     '*.min.*',
@@ -30,7 +29,7 @@ module.exports = defineConfig({
     '!.vitepress',
     '!.vscode',
   ],
-  plugins: ['html', 'unicorn'],
+  plugins: ['html', 'unicorn', 'markdown'],
   settings: {
     'import/resolver': {
       node: { extensions: ['.js', '.mjs'] },
