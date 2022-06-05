@@ -9,10 +9,10 @@
   ],
   "license": "MIT",
   "author": "Sumit Kolhe <thesumitkolhe@gmail.com> (https://github.com/sumitkolhe/)",
-  "main": "index.js",
   "files": [
     "index.js"
   ],
+  "main": "index.js",
   "publishConfig": {
     "access": "public"
   },
