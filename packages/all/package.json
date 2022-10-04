@@ -1,6 +1,6 @@
 {
   "name": "@kolhe/eslint-config",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "",
   "keywords": [
     "eslint",
@@ -20,8 +20,8 @@
     "eslint": ">=8.0.0"
   },
   "dependencies": {
-    "@kolhe/eslint-config-prettier": "latest",
-    "@kolhe/eslint-config-vue": "latest"
+    "@kolhe/eslint-config-prettier": "workspace:*",
+    "@kolhe/eslint-config-vue": "workspace:*"
   },
   "devDependencies": {
     "eslint": "^8.11.0"
