@@ -9,10 +9,10 @@
   ],
   "license": "MIT",
   "author": "Sumit Kolhe <thesumitkolhe@gmail.com> (https://github.com/sumitkolhe/)",
-  "main": "index.js",
   "files": [
     "index.js"
   ],
+  "main": "index.js",
   "publishConfig": {
     "access": "public"
   },
@@ -20,8 +20,8 @@
     "eslint": ">=8.0.0"
   },
   "dependencies": {
-    "@kolhe/eslint-config-prettier": "workspace:*",
-    "@kolhe/eslint-config-vue": "workspace:*"
+    "@kolhe/eslint-config-prettier": "latest",
+    "@kolhe/eslint-config-vue": "latest"
   },
   "devDependencies": {
     "eslint": "^8.11.0"

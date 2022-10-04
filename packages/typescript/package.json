@@ -5,10 +5,10 @@
   "keywords": [],
   "license": "MIT",
   "author": "Sumit Kolhe <thesumitkolhe@gmail.com> (https://github.com/sumitkolhe/)",
-  "main": "index.js",
   "files": [
     "index.js"
   ],
+  "main": "index.js",
   "publishConfig": {
     "access": "public"
   },
@@ -17,11 +17,10 @@
     "typescript": ">=3.9"
   },
   "dependencies": {
-    "@kolhe/eslint-config-basic": "workspace:*",
+    "@kolhe/eslint-config-basic": "latest",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
-    "eslint-define-config": "^1.3.0",
-    "typescript": "^4.8.4"
+    "eslint-define-config": "^1.3.0"
   },
   "devDependencies": {
     "eslint": "8.11.0"
