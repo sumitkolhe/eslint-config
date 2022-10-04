@@ -29,10 +29,10 @@ module.exports = defineConfig({
     '!.vitepress',
     '!.vscode',
   ],
-  plugins: ['html', 'unicorn'],
+  plugins: ['import', 'html', 'unicorn'],
   settings: {
     'import/resolver': {
-      node: { extensions: ['.js', '.mjs'] },
+      node: { extensions: ['.js', '.mjs', '.ts', '.d.ts'] },
     },
   },
   overrides: [
@@ -113,11 +113,8 @@ module.exports = defineConfig({
     // import
     'import/first': 'error',
     'import/no-mutable-exports': 'error',
-    'import/no-unresolved': 'off',
-    'import/no-absolute-path': 'off',
     'import/no-duplicates': 'error',
     'import/no-named-as-default-member': 'off',
-    'import/named': 'off',
     'import/order': [
       'error',
       {
@@ -178,6 +175,7 @@ module.exports = defineConfig({
     'prefer-rest-params': 'error',
     'prefer-spread': 'error',
     'prefer-template': 'error',
+    'require-await': 'error',
 
     // best-practice
     'array-callback-return': 'error',
