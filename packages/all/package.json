@@ -1,7 +1,7 @@
 {
   "name": "@kolhe/eslint-config",
   "version": "1.2.5",
-  "description": "",
+  "description": "eslint config",
   "keywords": [
     "eslint",
     "config",
