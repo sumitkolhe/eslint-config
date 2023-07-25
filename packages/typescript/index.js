@@ -4,15 +4,9 @@ const basic = require('@kolhe/eslint-config-basic')
 module.exports = defineConfig({
   extends: [
     '@kolhe/eslint-config-basic',
-    'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
   ],
-
-  settings: {
-    'import/resolver': {
-      node: { extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.d.ts'] },
-    },
-  },
+  ignorePatterns: ['auto-import.d.ts', 'components.d.ts'],
   overrides: [
     ...basic.overrides,
     {
@@ -44,7 +38,10 @@ module.exports = defineConfig({
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/consistent-type-imports': [
       'error',
-      { disallowTypeAnnotations: false },
+      {
+        fixStyle: 'separate-type-imports',
+        disallowTypeAnnotations: false,
+      },
     ],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
