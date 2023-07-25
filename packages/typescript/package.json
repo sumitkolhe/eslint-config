@@ -1,6 +1,6 @@
 {
   "name": "@kolhe/eslint-config-ts",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "keywords": [],
   "license": "MIT",
@@ -25,5 +25,6 @@
   },
   "devDependencies": {
     "eslint": "^8.45.0"
-  }
+  },
+  "gitHead": "89914d91616996b7f9665c30950b7ac2d46828f3"
 }
