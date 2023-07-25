@@ -5,13 +5,15 @@
   "scripts": {
     "lint": "eslint . --ext .js,.ts,.json,.json5,.vue,.md --fix",
     "format": "prettier --write .",
-    "release": "lerna publish"
+    "release": "bumpp -r && npm publish -r"
   },
   "devDependencies": {
     "@kolhe/eslint-config": "latest",
     "eslint": "^8.45.0",
     "lerna": "^7.1.4",
     "prettier": "^3.0.0",
-    "typescript": "^5.1.6"
-  }
+    "typescript": "^5.1.6",
+    "bumpp": "^9.1.1"
+  },
+  "version": "1.2.0"
 }
