@@ -42,6 +42,14 @@ export const reactivityTransform: FlatESLintConfigItem[] = [
 
 const vueCustomRules: Rules = {
   'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
+  'vue/component-name-in-template-casing': [
+    'error',
+    'kebab-case',
+    {
+      ignores: [],
+      registeredComponentsOnly: false,
+    },
+  ],
   'vue/custom-event-name-casing': ['error', 'camelCase'],
   'vue/eqeqeq': ['error', 'smart'],
   'vue/html-self-closing': [
@@ -57,14 +65,12 @@ const vueCustomRules: Rules = {
     },
   ],
   'vue/max-attributes-per-line': 'off',
-
   'vue/multi-word-component-names': 'off',
   'vue/no-constant-condition': 'warn',
   'vue/no-empty-pattern': 'error',
   'vue/no-loss-of-precision': 'error',
   'vue/no-unused-refs': 'error',
   'vue/no-useless-v-bind': 'error',
-
   'vue/no-v-html': 'off',
   'vue/object-shorthand': [
     'error',

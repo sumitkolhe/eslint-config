@@ -57,7 +57,7 @@ export { presetBasic as basic, presetAll as all }
  * @param features
  * @returns
  */
-export function kolhe(
+export function config(
   config: FlatESLintConfigItem | FlatESLintConfigItem[] = [],
   {
     markdown: enableMarkdown = true,

@@ -22,8 +22,8 @@ Require Node.js >= 18.18, and ESLint >= 8.56.0.
 ## Usage
 
 ```js
-import { kolhe } from '@kolhe/eslint-config'
-export default kolhe(
+import { config } from '@kolhe/eslint-config'
+export default config(
   [
     /* your custom config */
   ],
