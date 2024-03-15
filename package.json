@@ -1,8 +1,9 @@
 {
   "name": "@kolhe/eslint-config",
-  "version": "2.0.1",
+  "version": "2.0.0",
   "packageManager": "pnpm@8.15.3",
   "description": "One eslint config to rule them all",
+  "type": "module",
   "license": "MIT",
   "homepage": "https://github.com/sumitkolhe/eslint-config#readme",
   "bugs": {
