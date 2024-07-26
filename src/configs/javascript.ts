@@ -1,7 +1,7 @@
 import globals from 'globals'
-import { pluginUnusedImports } from '../plugins'
 import { isInEditor } from '../env'
-import type { FlatESLintConfigItem } from 'eslint-define-config'
+import { pluginUnusedImports } from '../plugins'
+import type { Linter } from 'eslint'
 
 export const restrictedSyntaxJs = [
   'ForInStatement',
@@ -9,7 +9,7 @@ export const restrictedSyntaxJs = [
   'WithStatement',
 ]
 
-export const javascript: FlatESLintConfigItem[] = [
+export const javascript: Linter.Config[] = [
   {
     languageOptions: {
       globals: {
@@ -59,7 +59,10 @@ export const javascript: FlatESLintConfigItem[] = [
       'no-empty-pattern': 'error',
       'no-ex-assign': 'error',
       'no-extra-boolean-cast': 'error',
-      'no-fallthrough': ['warn', { commentPattern: 'break[\\s\\w]*omitted' }],
+      'no-fallthrough': [
+        'warn',
+        { commentPattern: String.raw`break[\s\w]*omitted` },
+      ],
       'no-func-assign': 'error',
       'no-global-assign': 'error',
       'no-import-assign': 'error',
@@ -79,7 +82,6 @@ export const javascript: FlatESLintConfigItem[] = [
       'no-redeclare': 'error',
       'no-regex-spaces': 'error',
       'no-restricted-syntax': ['error', ...restrictedSyntaxJs],
-      'no-return-await': 'warn',
       'no-self-assign': 'error',
       'no-setter-return': 'error',
       'no-shadow-restricted-names': 'error',
@@ -127,16 +129,6 @@ export const javascript: FlatESLintConfigItem[] = [
       'prefer-template': 'error',
       'require-await': 'error',
       'require-yield': 'error',
-      'sort-imports': [
-        'error',
-        {
-          allowSeparatedGroups: false,
-          ignoreCase: false,
-          ignoreDeclarationSort: true,
-          ignoreMemberSort: false,
-          memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-        },
-      ],
       'unicode-bom': ['error', 'never'],
       'unused-imports/no-unused-imports': isInEditor ? 'off' : 'error',
       'unused-imports/no-unused-vars': [

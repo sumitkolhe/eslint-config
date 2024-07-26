@@ -1,9 +1,10 @@
-import { hasUnocss, hasVue } from './env'
 import {
+  command,
   comments,
   ignores,
   imports,
   javascript,
+  jsdoc,
   jsonc,
   markdown,
   node,
@@ -17,7 +18,8 @@ import {
   vue,
   yml,
 } from './configs'
-import type { FlatESLintConfigItem } from 'eslint-define-config'
+import { hasUnocss, hasVue } from './env'
+import type { Linter } from 'eslint'
 
 /** Ignore common files and include javascript support */
 export const presetJavaScript = [
@@ -27,6 +29,7 @@ export const presetJavaScript = [
   ...imports,
   ...unicorn,
   ...node,
+  ...jsdoc,
 ]
 /** Includes basic json(c) file support and sorting json keys */
 export const presetJsonc = [...jsonc, ...sortPackageJson, ...sortTsconfig]
@@ -49,17 +52,12 @@ export const presetAll = [
   ...unocss,
   ...prettier,
 ]
-export { presetBasic as basic, presetAll as all }
+export { presetAll as all, presetBasic as basic }
 
-/**
- *
- * @param config
- * @param features
- * @returns
- */
 export function config(
-  config: FlatESLintConfigItem | FlatESLintConfigItem[] = [],
+  config: Linter.Config | Linter.Config[] = [],
   {
+    command: enableCommand = true,
     markdown: enableMarkdown = true,
     prettier: enablePrettier = true,
     unocss: enableUnocss = hasUnocss,
@@ -74,8 +72,9 @@ export function config(
     /** UnoCSS support. Auto-enable. */
     unocss: boolean
     sortKeys: boolean
+    command: boolean
   }> = {},
-): FlatESLintConfigItem[] {
+): Linter.Config[] {
   const configs = [...presetBasic, ...yml, ...presetJsonc]
   if (enableVue) {
     configs.push(...vue)
@@ -88,6 +87,9 @@ export function config(
   }
   if (enablePrettier) {
     configs.push(...prettier)
+  }
+  if (enableCommand) {
+    configs.push(...command)
   }
   if (Object.keys(config).length > 0) {
     configs.push(...(Array.isArray(config) ? config : [config]))

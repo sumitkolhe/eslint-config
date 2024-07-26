@@ -3,7 +3,7 @@ import { getPackageInfoSync } from 'local-pkg'
 import { GLOB_VUE } from '../globs'
 import { parserVue, pluginVue, tseslint } from '../plugins'
 import { typescriptCore } from './typescript'
-import type { FlatESLintConfigItem, Rules } from 'eslint-define-config'
+import type { Linter } from 'eslint'
 
 export function getVueVersion() {
   const pkg = getPackageInfoSync('vue', { paths: [process.cwd()] })
@@ -18,7 +18,7 @@ export function getVueVersion() {
 }
 const isVue3 = getVueVersion() === 3
 
-export const reactivityTransform: FlatESLintConfigItem[] = [
+export const reactivityTransform: Linter.Config[] = [
   {
     languageOptions: {
       globals: {
@@ -40,8 +40,7 @@ export const reactivityTransform: FlatESLintConfigItem[] = [
   },
 ]
 
-const vueCustomRules: Rules = {
-  'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
+const vueCustomRules: Linter.RulesRecord = {
   'vue/component-name-in-template-casing': [
     'error',
     'kebab-case',
@@ -50,6 +49,7 @@ const vueCustomRules: Rules = {
       registeredComponentsOnly: false,
     },
   ],
+  'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
   'vue/custom-event-name-casing': ['error', 'camelCase'],
   'vue/eqeqeq': ['error', 'smart'],
   'vue/html-self-closing': [
@@ -65,12 +65,14 @@ const vueCustomRules: Rules = {
     },
   ],
   'vue/max-attributes-per-line': 'off',
+
   'vue/multi-word-component-names': 'off',
   'vue/no-constant-condition': 'warn',
   'vue/no-empty-pattern': 'error',
   'vue/no-loss-of-precision': 'error',
   'vue/no-unused-refs': 'error',
   'vue/no-useless-v-bind': 'error',
+
   'vue/no-v-html': 'off',
   'vue/object-shorthand': [
     'error',
@@ -87,21 +89,21 @@ const vueCustomRules: Rules = {
   'vue/require-prop-types': 'off',
 }
 
-const vue3Rules: Rules = {
+const vue3Rules: Linter.RulesRecord = {
   ...pluginVue.configs.base.rules,
   ...pluginVue.configs['vue3-essential'].rules,
   ...pluginVue.configs['vue3-strongly-recommended'].rules,
   ...pluginVue.configs['vue3-recommended'].rules,
 }
 
-const vue2Rules: Rules = {
+const vue2Rules: Linter.RulesRecord = {
   ...pluginVue.configs.base.rules,
   ...pluginVue.configs.essential.rules,
   ...pluginVue.configs['strongly-recommended'].rules,
   ...pluginVue.configs.recommended.rules,
 }
 
-export const vue: FlatESLintConfigItem[] = [
+export const vue: Linter.Config[] = [
   ...(tseslint.config({
     extends: typescriptCore as any[],
     files: [GLOB_VUE],

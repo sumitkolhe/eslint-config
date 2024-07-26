@@ -1,19 +1,19 @@
 import { GLOB_YAML } from '../globs'
 import { parserYml, pluginYml } from '../plugins'
-import type { FlatESLintConfigItem, Rules } from 'eslint-define-config'
+import type { Linter } from 'eslint'
 
-export const yml: FlatESLintConfigItem[] = [
+export const yml: Linter.Config[] = [
   {
     files: [GLOB_YAML],
     languageOptions: {
       parser: parserYml,
     },
     plugins: {
-      yml: pluginYml,
+      yml: pluginYml as any,
     },
     rules: {
-      ...(pluginYml.configs.standard.rules as Rules),
-      ...(pluginYml.configs.prettier.rules as Rules),
+      ...(pluginYml.configs.standard.rules as Linter.RulesRecord),
+      ...(pluginYml.configs.prettier.rules as Linter.RulesRecord),
       'yml/no-empty-mapping-value': 'off',
     },
   },

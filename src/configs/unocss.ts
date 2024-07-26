@@ -1,4 +1,6 @@
 import { pluginUnocss } from '../plugins'
-import type { FlatESLintConfigItem } from 'eslint-define-config'
+import type { Linter } from 'eslint'
 
-export const unocss: FlatESLintConfigItem[] = [pluginUnocss.configs.flat]
+export const unocss: Linter.Config[] = [
+  pluginUnocss.configs.flat as any as Linter.Config,
+]

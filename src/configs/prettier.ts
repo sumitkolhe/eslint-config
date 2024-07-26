@@ -1,10 +1,10 @@
 import { configPrettier, pluginPrettier } from '../plugins'
-import type { FlatESLintConfigItem } from 'eslint-define-config'
+import type { Linter } from 'eslint'
 
 const prettierConflictRules = { ...configPrettier.rules }
 delete prettierConflictRules['vue/html-self-closing']
 
-export const prettier: FlatESLintConfigItem[] = [
+export const prettier: Linter.Config[] = [
   {
     plugins: {
       prettier: pluginPrettier,
