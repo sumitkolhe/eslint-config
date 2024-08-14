@@ -1,10 +1,12 @@
-import { createRequire } from 'node:module'
+// @ts-check
+// import { config } from './dist/index.js'
+import { importx } from 'importx'
 
-const require = createRequire(import.meta.url)
-require('sucrase/register')
-
-/** @type {typeof import('./src/index.ts')} */
-const { config } = require('./src/index.ts')
+/** @type {import('./src/index.ts')} */
+const { config } = await importx('./src/index.ts', {
+  parentURL: import.meta.url,
+  loader: 'jiti',
+})
 
 export default config(
   [
@@ -17,7 +19,8 @@ export default config(
     {
       files: ['**/*.md/*'],
       rules: {
-        'sort-imports': 'off',
+        'perfectionist/sort-imports': 'off',
+        'perfectionist/sort-named-imports': 'off',
       },
     },
   ],
