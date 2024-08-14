@@ -8,6 +8,7 @@ export const jsonc: Linter.Config[] = [
     languageOptions: {
       parser: parserJsonc,
     },
+    name: 'config/json',
     plugins: {
       jsonc: pluginJsonc as any,
     },

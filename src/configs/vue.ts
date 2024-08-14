@@ -31,6 +31,7 @@ export const reactivityTransform: Linter.Config[] = [
         $toRef: 'readonly',
       },
     },
+    name: 'config/vue/reactivity-transform',
     plugins: {
       vue: pluginVue,
     },
@@ -103,11 +104,21 @@ const vue2Rules: Linter.RulesRecord = {
   ...pluginVue.configs.recommended.rules,
 }
 
+delete vue2Rules['vue/component-tags-order']
+delete vue3Rules['vue/component-tags-order']
+
+const vueTs: Linter.Config[] = typescriptCore
+  .filter((config) => config.name !== 'typescript-eslint/base')
+  .map((config) => {
+    return {
+      ...config,
+      files: [GLOB_VUE],
+      name: `config/vue/${config.name?.replace('config/', '') || 'anonymous'}`,
+    }
+  })
+
 export const vue: Linter.Config[] = [
-  ...(tseslint.config({
-    extends: typescriptCore as any[],
-    files: [GLOB_VUE],
-  }) as any),
+  ...vueTs,
   {
     files: [GLOB_VUE],
     languageOptions: {
@@ -121,8 +132,9 @@ export const vue: Linter.Config[] = [
         sourceType: 'module',
       },
     },
+    name: 'config/vue',
     plugins: {
-      '@typescript-eslint': tseslint.plugin,
+      '@typescript-eslint': tseslint.plugin as any,
       vue: pluginVue,
     },
     processor: pluginVue.processors['.vue'],

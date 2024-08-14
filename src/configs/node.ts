@@ -3,6 +3,7 @@ import type { Linter } from 'eslint'
 
 export const node: Linter.Config[] = [
   {
+    name: 'config/node',
     plugins: {
       node: pluginNode,
     },

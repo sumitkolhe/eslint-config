@@ -9,7 +9,8 @@ import {
   markdown,
   node,
   prettier,
-  sortKeys,
+  regexp,
+  sortImports,
   sortPackageJson,
   sortTsconfig,
   typescript,
@@ -19,6 +20,7 @@ import {
   yml,
 } from './configs'
 import { hasUnocss, hasVue } from './env'
+import type { Rules } from './typegen'
 import type { Linter } from 'eslint'
 
 /** Ignore common files and include javascript support */
@@ -30,13 +32,14 @@ export const presetJavaScript = [
   ...unicorn,
   ...node,
   ...jsdoc,
+  ...regexp,
 ]
 /** Includes basic json(c) file support and sorting json keys */
 export const presetJsonc = [...jsonc, ...sortPackageJson, ...sortTsconfig]
 /** Includes markdown, yaml + `presetJsonc` support */
 export const presetLangsExtensions = [...markdown, ...yml, ...presetJsonc]
 /** Includes `presetJavaScript` and typescript support */
-export const presetBasic = [...presetJavaScript, ...typescript, ...sortKeys]
+export const presetBasic = [...presetJavaScript, ...typescript, ...sortImports]
 /**
  * Includes
  * - `presetBasic` (JS+TS) support
@@ -54,8 +57,10 @@ export const presetAll = [
 ]
 export { presetAll as all, presetBasic as basic }
 
+export type Config = Linter.Config<Linter.RulesRecord & Rules>
+
 export function config(
-  config: Linter.Config | Linter.Config[] = [],
+  config: Config | Config[] = [],
   {
     command: enableCommand = true,
     markdown: enableMarkdown = true,

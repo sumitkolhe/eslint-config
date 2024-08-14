@@ -6,6 +6,7 @@ delete prettierConflictRules['vue/html-self-closing']
 
 export const prettier: Linter.Config[] = [
   {
+    name: 'config/prettier',
     plugins: {
       prettier: pluginPrettier,
     },

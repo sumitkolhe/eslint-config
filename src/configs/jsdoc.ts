@@ -3,6 +3,7 @@ import type { Linter } from 'eslint'
 
 export const jsdoc: Linter.Config[] = [
   {
+    name: 'config/jsdoc',
     plugins: {
       jsdoc: pluginJsdoc,
     },

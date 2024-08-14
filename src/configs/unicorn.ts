@@ -3,11 +3,11 @@ import type { Linter } from 'eslint'
 
 export const unicorn: Linter.Config[] = [
   {
+    name: 'config/unicorn',
     plugins: {
       unicorn: pluginUnicorn,
     },
     rules: {
-      'unicorn/better-regex': 'error',
       'unicorn/catch-error-name': 'error',
       'unicorn/consistent-empty-array-spread': 'error',
       'unicorn/custom-error-definition': 'error',

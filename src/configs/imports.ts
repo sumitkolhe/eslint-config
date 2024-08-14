@@ -4,6 +4,7 @@ import type { Linter } from 'eslint'
 
 export const imports: Linter.Config[] = [
   {
+    name: 'config/imports',
     plugins: {
       antfu: pluginAntfu,
       import: pluginImport as any,
@@ -28,6 +29,7 @@ export const imports: Linter.Config[] = [
       `${GLOB_MARKDOWN}/**`,
       '**/.prettierrc*',
     ],
+    name: 'config/allow-default-export',
     plugins: {
       import: pluginImport as any,
     },

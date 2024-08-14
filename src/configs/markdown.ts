@@ -3,10 +3,14 @@ import { pluginMarkdown } from '../plugins'
 import type { Linter } from 'eslint'
 
 export const markdown: Linter.Config[] = [
-  ...pluginMarkdown.configs.recommended,
+  ...pluginMarkdown.configs.recommended.map((config: Linter.Config) => ({
+    ...config,
+    name: `config/${config.name || 'anonymous'}`,
+  })),
 
   {
     files: [`${GLOB_MARKDOWN}/${GLOB_SRC}`, `${GLOB_MARKDOWN}/${GLOB_VUE}`],
+    name: 'config/markdown-rules',
     rules: {
       '@typescript-eslint/comma-dangle': 'off',
       '@typescript-eslint/consistent-type-imports': 'off',
@@ -16,7 +20,6 @@ export const markdown: Linter.Config[] = [
       '@typescript-eslint/no-require-imports': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-use-before-define': 'off',
-      '@typescript-eslint/no-var-requires': 'off',
 
       'no-alert': 'off',
       'no-console': 'off',
