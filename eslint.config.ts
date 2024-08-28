@@ -1,12 +1,5 @@
-// @ts-check
 // import { config } from './dist/index.js'
-import { importx } from 'importx'
-
-/** @type {import('./src/index.ts')} */
-const { config } = await importx('./src/index.ts', {
-  parentURL: import.meta.url,
-  loader: 'jiti',
-})
+import { config } from './src/index'
 
 export default config(
   [
