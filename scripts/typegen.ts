@@ -8,7 +8,7 @@ const dts = await flatConfigsToRulesDTS(
   config(
     [
       {
-        plugins: { '': { rules: Object.fromEntries(builtinRules.entries()) } },
+        plugins: { '': { rules: Object.fromEntries(builtinRules) } },
       },
     ],
     { vue: true, unocss: true },
