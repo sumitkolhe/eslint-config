@@ -13,6 +13,7 @@ import {
   sortImports,
   sortPackageJson,
   sortTsconfig,
+  specialCases,
   typescript,
   unicorn,
   unocss,
@@ -21,10 +22,9 @@ import {
 } from './configs'
 import { hasUnocss, hasVue } from './env'
 import type { Config } from './types'
-import type { Linter } from 'eslint'
 
 /** Ignore common files and include javascript support */
-export const presetJavaScript = [
+export const presetJavaScript: Config[] = [
   ...ignores,
   ...javascript,
   ...comments,
@@ -35,11 +35,23 @@ export const presetJavaScript = [
   ...regexp,
 ]
 /** Includes basic json(c) file support and sorting json keys */
-export const presetJsonc = [...jsonc, ...sortPackageJson, ...sortTsconfig]
+export const presetJsonc: Config[] = [
+  ...jsonc,
+  ...sortPackageJson,
+  ...sortTsconfig,
+]
 /** Includes markdown, yaml + `presetJsonc` support */
-export const presetLangsExtensions = [...markdown, ...yml, ...presetJsonc]
+export const presetLangsExtensions: Config[] = [
+  ...markdown,
+  ...yml,
+  ...presetJsonc,
+]
 /** Includes `presetJavaScript` and typescript support */
-export const presetBasic = [...presetJavaScript, ...typescript, ...sortImports]
+export const presetBasic: Config[] = [
+  ...presetJavaScript,
+  ...typescript,
+  ...sortImports,
+]
 /**
  * Includes
  * - `presetBasic` (JS+TS) support
@@ -48,7 +60,7 @@ export const presetBasic = [...presetJavaScript, ...typescript, ...sortImports]
  * - UnoCSS support (`uno.config.ts` is required)
  * - Prettier support
  */
-export const presetAll = [
+export const presetAll: Config[] = [
   ...presetBasic,
   ...presetLangsExtensions,
   ...vue,
@@ -77,8 +89,8 @@ export function config(
     sortKeys: boolean
     command: boolean
   }> = {},
-): Linter.Config[] {
-  const configs = [...presetBasic, ...yml, ...presetJsonc]
+): Config[] {
+  const configs: Config[] = [...presetBasic, ...yml, ...presetJsonc]
   if (enableVue) {
     configs.push(...vue)
   }
@@ -97,5 +109,6 @@ export function config(
   if (Object.keys(config).length > 0) {
     configs.push(...(Array.isArray(config) ? config : [config]))
   }
+  configs.push(...specialCases)
   return configs
 }

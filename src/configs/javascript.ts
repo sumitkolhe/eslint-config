@@ -36,7 +36,7 @@ export const javascript: Config[] = [
       'dot-notation': 'warn',
       eqeqeq: ['error', 'smart'],
       'no-alert': 'warn',
-      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'no-console': ['warn', { allow: ['warn', 'error', 'info', 'clear'] }],
       'no-debugger': 'warn',
       'no-duplicate-imports': 'error',
       'no-empty': ['error', { allowEmptyCatch: true }],
@@ -89,20 +89,6 @@ export const javascript: Config[] = [
       ],
       'valid-typeof': ['error', { requireStringLiterals: true }],
       'vars-on-top': 'error',
-    },
-  },
-  {
-    files: ['**/scripts/*', '**/cli.*'],
-    name: 'config/cli-rules',
-    rules: {
-      'no-console': 'off',
-    },
-  },
-  {
-    files: ['**/*.{test,spec}.js?(x)'],
-    name: 'config/test-rules',
-    rules: {
-      'no-unused-expressions': 'off',
     },
   },
 ]
