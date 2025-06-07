@@ -32,8 +32,8 @@ export default config(
     prettier: true,
     markdown: true,
     vue: true, // auto detection
-    unocss: false, // auto detection
-  },
+    unocss: false // auto detection
+  }
 )
 ```
 
@@ -53,7 +53,7 @@ import {
   // - Vue support
   // - UnoCSS support (`uno.config.ts` is required)
   // - Prettier support
-  presetAll,
+  presetAll
 } from '@kolhe/eslint-config'
 
 export default presetAll
@@ -65,7 +65,7 @@ See [preset.ts](./src/presets.ts) for more details.
 
 ```jsonc
 {
-  "eslint.experimental.useFlatConfig": true,
+  "eslint.experimental.useFlatConfig": true
 }
 ```
 

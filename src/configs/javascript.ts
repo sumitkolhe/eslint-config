@@ -1,12 +1,8 @@
 import globals from 'globals'
-import { configJs,  pluginUnusedImports } from '../plugins'
+import { configJs, pluginUnusedImports } from '../plugins'
 import type { Config } from '../types'
 
-export const restrictedSyntaxJs: string[] = [
-  'ForInStatement',
-  'LabeledStatement',
-  'WithStatement',
-]
+export const restrictedSyntaxJs: string[] = ['ForInStatement', 'LabeledStatement', 'WithStatement']
 
 export const javascript = (): Config[] => [
   { ...configJs.configs.recommended, name: 'config/js/recommended' },
@@ -15,19 +11,19 @@ export const javascript = (): Config[] => [
       globals: {
         ...globals.browser,
         ...globals.es2021,
-        ...globals.node,
+        ...globals.node
       },
       parserOptions: {
         ecmaFeatures: {
-          jsx: true,
+          jsx: true
         },
-        sourceType: 'module',
+        sourceType: 'module'
       },
-      sourceType: 'module',
+      sourceType: 'module'
     },
     name: 'config/js',
     plugins: {
-      'unused-imports': pluginUnusedImports,
+      'unused-imports': pluginUnusedImports
     },
     rules: {
       'array-callback-return': 'error',
@@ -39,10 +35,7 @@ export const javascript = (): Config[] => [
       'no-debugger': 'warn',
       'no-duplicate-imports': 'error',
       'no-empty': ['error', { allowEmptyCatch: true }],
-      'no-fallthrough': [
-        'warn',
-        { commentPattern: String.raw`break[\s\w]*omitted` },
-      ],
+      'no-fallthrough': ['warn', { commentPattern: String.raw`break[\s\w]*omitted` }],
       'no-inner-declarations': 'error',
       'no-lonely-if': 'error',
       'no-multi-str': 'error',
@@ -52,24 +45,14 @@ export const javascript = (): Config[] => [
         {
           allowShortCircuit: true,
           allowTaggedTemplates: true,
-          allowTernary: true,
-        },
+          allowTernary: true
+        }
       ],
       'no-unused-vars': 'off',
       'no-void': 'error',
-      'object-shorthand': [
-        'error',
-        'always',
-        { avoidQuotes: true, ignoreConstructors: false },
-      ],
-      'prefer-arrow-callback': [
-        'error',
-        { allowNamedFunctions: false, allowUnboundThis: true },
-      ],
-      'prefer-const': [
-        'warn',
-        { destructuring: 'all', ignoreReadBeforeAssign: true },
-      ],
+      'object-shorthand': ['error', 'always', { avoidQuotes: true, ignoreConstructors: false }],
+      'prefer-arrow-callback': ['error', { allowNamedFunctions: false, allowUnboundThis: true }],
+      'prefer-const': ['warn', { destructuring: 'all', ignoreReadBeforeAssign: true }],
       'prefer-exponentiation-operator': 'error',
       'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
       'prefer-rest-params': 'error',
@@ -78,16 +61,10 @@ export const javascript = (): Config[] => [
       'require-await': 'error',
       'unicode-bom': ['error', 'never'],
       'unused-imports/no-unused-imports': 'warn',
-      'unused-imports/no-unused-vars': [
-        'error',
-        { args: 'after-used', ignoreRestSiblings: true },
-      ],
-      'use-isnan': [
-        'error',
-        { enforceForIndexOf: true, enforceForSwitchCase: true },
-      ],
+      'unused-imports/no-unused-vars': ['error', { args: 'after-used', ignoreRestSiblings: true }],
+      'use-isnan': ['error', { enforceForIndexOf: true, enforceForSwitchCase: true }],
       'valid-typeof': ['error', { requireStringLiterals: true }],
-      'vars-on-top': 'error',
-    },
-  },
+      'vars-on-top': 'error'
+    }
+  }
 ]

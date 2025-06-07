@@ -7,19 +7,19 @@ export const yml = (): Config[] => [
   {
     name: 'config/yaml/setup',
     plugins: {
-      yml: pluginYml as any,
-    },
+      yml: pluginYml as any
+    }
   },
   {
     files: [GLOB_YAML],
     languageOptions: {
-      parser: parserYml,
+      parser: parserYml
     },
     name: 'config/yaml/rules',
     rules: {
       ...(pluginYml.configs.standard.rules as Rules),
       ...(pluginYml.configs.prettier.rules as Rules),
-      'yml/no-empty-mapping-value': 'off',
-    },
-  },
+      'yml/no-empty-mapping-value': 'off'
+    }
+  }
 ]

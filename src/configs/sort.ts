@@ -11,8 +11,8 @@ export const sortPackageJson = (): Config[] => [
         'error',
         {
           order: { type: 'asc' },
-          pathPattern: '^files$',
-        },
+          pathPattern: '^files$'
+        }
       ],
       'jsonc/sort-keys': [
         'error',
@@ -61,25 +61,25 @@ export const sortPackageJson = (): Config[] => [
             'simple-git-hooks',
             'lint-staged',
             'eslintConfig',
-            'prettier',
+            'prettier'
           ],
-          pathPattern: '^$',
+          pathPattern: '^$'
         },
         {
           order: { type: 'asc' },
-          pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$',
+          pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$'
         },
         {
           order: ['types', 'require', 'import', 'default'],
-          pathPattern: '^exports.*$',
+          pathPattern: '^exports.*$'
         },
         {
           order: { type: 'asc' },
-          pathPattern: String.raw`^(?:resolutions|overrides|pnpm\.overrides)$`,
-        },
-      ],
-    },
-  },
+          pathPattern: String.raw`^(?:resolutions|overrides|pnpm\.overrides)$`
+        }
+      ]
+    }
+  }
 ]
 
 export const sortTsconfig = (): Config[] => [
@@ -90,15 +90,8 @@ export const sortTsconfig = (): Config[] => [
       'jsonc/sort-keys': [
         'error',
         {
-          order: [
-            'extends',
-            'compilerOptions',
-            'references',
-            'files',
-            'include',
-            'exclude',
-          ],
-          pathPattern: '^$',
+          order: ['extends', 'compilerOptions', 'references', 'files', 'include', 'exclude'],
+          pathPattern: '^$'
         },
         {
           order: [
@@ -198,13 +191,13 @@ export const sortTsconfig = (): Config[] => [
             'verbatimModuleSyntax',
             /* Completeness */
             'skipDefaultLibCheck',
-            'skipLibCheck',
+            'skipLibCheck'
           ],
-          pathPattern: '^compilerOptions$',
-        },
-      ],
-    },
-  },
+          pathPattern: '^compilerOptions$'
+        }
+      ]
+    }
+  }
 ]
 
 export const sortPnpmWorkspace = (): Config[] => [
@@ -234,34 +227,34 @@ export const sortPnpmWorkspace = (): Config[] => [
             'onlyBuiltDependenciesFile',
             'packageExtensions',
             'peerDependencyRules',
-            'supportedArchitectures',
+            'supportedArchitectures'
           ],
-          pathPattern: '^$',
+          pathPattern: '^$'
         },
         {
           allowLineSeparatedGroups: true,
           order: { type: 'asc' },
-          pathPattern: '^catalog$',
+          pathPattern: '^catalog$'
         },
         {
           order: { type: 'asc' },
-          pathPattern: `^catalogs$`,
+          pathPattern: `^catalogs$`
         },
         {
           allowLineSeparatedGroups: true,
           order: { type: 'asc' },
-          pathPattern: String.raw`^catalogs\..+$`,
-        },
-      ],
-    },
-  },
+          pathPattern: String.raw`^catalogs\..+$`
+        }
+      ]
+    }
+  }
 ]
 
 export const sortImports = (): Config[] => [
   {
     name: 'config/sort/imports',
     plugins: {
-      perfectionist: pluginPerfectionist,
+      perfectionist: pluginPerfectionist
     },
     rules: {
       'perfectionist/sort-imports': [
@@ -281,20 +274,14 @@ export const sortImports = (): Config[] => [
             'object',
             'type',
             'side-effect',
-            'side-effect-style',
+            'side-effect-style'
           ],
           internalPattern: ['^[~@#]/.*'],
-          newlinesBetween: 'ignore',
-        },
+          newlinesBetween: 'ignore'
+        }
       ],
-      'perfectionist/sort-named-exports': [
-        'warn',
-        { groupKind: 'values-first' },
-      ],
-      'perfectionist/sort-named-imports': [
-        'warn',
-        { groupKind: 'values-first' },
-      ],
-    },
-  },
+      'perfectionist/sort-named-exports': ['warn', { groupKind: 'values-first' }],
+      'perfectionist/sort-named-imports': ['warn', { groupKind: 'values-first' }]
+    }
+  }
 ]

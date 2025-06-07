@@ -7,16 +7,16 @@ export const specialCases = (): Config[] => [
     files: ['**/scripts/*', '**/cli.*'],
     name: 'config/special/cli',
     rules: {
-      'no-console': 'off',
-    },
+      'no-console': 'off'
+    }
   },
   {
     files: [`**/*.{test,spec}.${GLOB_SRC_EXT}`],
     name: 'config/special/tests',
     rules: {
       'no-unused-expressions': 'off',
-      'unicorn/consistent-function-scoping': 'off',
-    },
+      'unicorn/consistent-function-scoping': 'off'
+    }
   },
   {
     files: [
@@ -25,21 +25,21 @@ export const specialCases = (): Config[] => [
       `**/{index,vite,esbuild,rollup,rolldown,webpack,rspack,farm,unloader}.${GLOB_SRC_EXT}`,
       '**/*.d.ts',
       `${GLOB_MARKDOWN}/**`,
-      '**/.prettierrc*',
+      '**/.prettierrc*'
     ],
     name: 'config/special/allow-default-export',
     plugins: {
-      import: pluginImport as any,
+      import: pluginImport as any
     },
     rules: {
-      'import/no-default-export': 'off',
-    },
+      'import/no-default-export': 'off'
+    }
   },
   {
     files: ['**/ISSUE_TEMPLATE/**'],
     name: 'config/special/github',
     rules: {
-      'unicorn/filename-case': 'off',
-    },
-  },
+      'unicorn/filename-case': 'off'
+    }
+  }
 ]

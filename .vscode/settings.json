@@ -1,5 +1,5 @@
 {
   "editor.formatOnSave": true,
-  "exportall.config.folderListener": [ "/src/configs"],
-  "exportall.config.semis": false,
+  "exportall.config.folderListener": ["/src/configs"],
+  "exportall.config.semis": false
 }

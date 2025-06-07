@@ -7,12 +7,12 @@ import { presetAll } from '../src/presets'
 const configs = [
   ...(await presetAll()),
   {
-    plugins: { '': { rules: Object.fromEntries(builtinRules) } },
-  },
+    plugins: { '': { rules: Object.fromEntries(builtinRules) } }
+  }
 ]
 let dts = await flatConfigsToRulesDTS(configs, {
   includeAugmentation: false,
-  exportTypeName: 'Rules',
+  exportTypeName: 'Rules'
 })
 
 const configNames = configs.map((i) => i.name).filter(Boolean) as string[]

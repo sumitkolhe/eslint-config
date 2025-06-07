@@ -66,8 +66,6 @@ export const vue = (): Config[] => [
       ...recommendedRules,
 
       'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
-      'vue/custom-event-name-casing': ['error', 'camelCase'],
-      'vue/eqeqeq': ['error', 'smart'],
       'vue/component-name-in-template-casing': [
         'error',
         'kebab-case',
@@ -76,6 +74,8 @@ export const vue = (): Config[] => [
           registeredComponentsOnly: false
         }
       ],
+      'vue/custom-event-name-casing': ['error', 'camelCase'],
+      'vue/eqeqeq': ['error', 'smart'],
       'vue/html-self-closing': [
         'error',
         {

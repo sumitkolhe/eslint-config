@@ -7,17 +7,16 @@ export const jsonc = (): Config[] => [
   {
     files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
     languageOptions: {
-      parser: parserJsonc,
+      parser: parserJsonc
     },
     name: 'config/json',
     plugins: {
-      jsonc: pluginJsonc as any,
+      jsonc: pluginJsonc as any
     },
     rules: {
-      ...(pluginJsonc.configs['recommended-with-jsonc']
-        .rules as Linter.RulesRecord),
+      ...(pluginJsonc.configs['recommended-with-jsonc'].rules as Linter.RulesRecord),
       'jsonc/quote-props': 'off',
-      'jsonc/quotes': 'off',
-    },
-  },
+      'jsonc/quotes': 'off'
+    }
+  }
 ]

@@ -5,17 +5,14 @@ export const unicorn = (): Config[] => [
   {
     name: 'config/unicorn',
     plugins: {
-      unicorn: pluginUnicorn,
+      unicorn: pluginUnicorn
     },
     rules: {
       'unicorn/catch-error-name': 'error',
       'unicorn/consistent-date-clone': 'error',
       'unicorn/consistent-empty-array-spread': 'error',
       'unicorn/consistent-existence-index-check': 'error',
-      'unicorn/consistent-function-scoping': [
-        'error',
-        { checkArrowFunctions: false },
-      ],
+      'unicorn/consistent-function-scoping': ['error', { checkArrowFunctions: false }],
       'unicorn/custom-error-definition': 'error',
       'unicorn/error-message': 'error',
       'unicorn/escape-case': 'error',
@@ -25,8 +22,8 @@ export const unicorn = (): Config[] => [
         'error',
         {
           cases: { kebabCase: true, pascalCase: true },
-          ignore: [/^[A-Z]+\..*$/, /import_map\.json/],
-        },
+          ignore: [/^[A-Z]+\..*$/, /import_map\.json/]
+        }
       ],
       'unicorn/new-for-builtins': 'error',
       // disabled for better bundle size
@@ -84,7 +81,7 @@ export const unicorn = (): Config[] => [
       // top level await is not supported in all environments
       // 'unicorn/prefer-top-level-await': 'error',
       'unicorn/prefer-type-error': 'error',
-      'unicorn/throw-new-error': 'error',
-    },
-  },
+      'unicorn/throw-new-error': 'error'
+    }
+  }
 ]

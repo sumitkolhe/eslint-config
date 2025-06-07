@@ -6,7 +6,7 @@ export const imports = (): Config[] => [
     name: 'config/imports',
     plugins: {
       antfu: pluginAntfu,
-      import: pluginImport as any,
+      import: pluginImport as any
     },
     rules: {
       'antfu/import-dedupe': 'error',
@@ -16,7 +16,7 @@ export const imports = (): Config[] => [
       'import/no-mutable-exports': 'error',
       'import/no-named-default': 'error',
       'import/no-self-import': 'error',
-      'import/no-webpack-loader-syntax': 'error',
-    },
-  },
+      'import/no-webpack-loader-syntax': 'error'
+    }
+  }
 ]

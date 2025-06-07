@@ -8,11 +8,11 @@ export const prettier = (): Config[] => [
   {
     name: 'config/prettier',
     plugins: {
-      prettier: pluginPrettier,
+      prettier: pluginPrettier
     },
     rules: {
       ...rules,
-      'prettier/prettier': 'warn',
-    },
-  },
+      'prettier/prettier': 'warn'
+    }
+  }
 ]

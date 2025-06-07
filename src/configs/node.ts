@@ -5,7 +5,7 @@ export const node = (): Config[] => [
   {
     name: 'config/node',
     plugins: {
-      node: pluginNode,
+      node: pluginNode
     },
     rules: {
       'node/handle-callback-err': ['error', '^(err|error)$'],
@@ -16,7 +16,7 @@ export const node = (): Config[] => [
       'node/no-unsupported-features/es-builtins': 'error',
       'node/prefer-global/buffer': ['error', 'never'],
       'node/prefer-global/process': ['error', 'never'],
-      'node/process-exit-as-throw': 'error',
-    },
-  },
+      'node/process-exit-as-throw': 'error'
+    }
+  }
 ]

@@ -5,7 +5,7 @@ import type { Config } from '../types'
 export const markdown = (): Config[] => [
   ...pluginMarkdown.configs.processor.map((config: Config) => ({
     ...config,
-    name: `config/${config.name || 'anonymous'}`,
+    name: `config/${config.name || 'anonymous'}`
   })),
 
   {
@@ -33,7 +33,7 @@ export const markdown = (): Config[] => [
       'node/prefer-global/process': 'off',
 
       'unused-imports/no-unused-imports': 'off',
-      'unused-imports/no-unused-vars': 'off',
-    },
-  },
+      'unused-imports/no-unused-vars': 'off'
+    }
+  }
 ]

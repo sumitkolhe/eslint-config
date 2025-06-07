@@ -4,6 +4,6 @@ import type { Config } from '../types'
 export const command = (): Config[] => [
   {
     ...configCommand(),
-    name: 'config/command',
-  },
+    name: 'config/command'
+  }
 ]

@@ -5,7 +5,7 @@ export const jsdoc = (): Config[] => [
   {
     name: 'config/jsdoc',
     plugins: {
-      jsdoc: pluginJsdoc,
+      jsdoc: pluginJsdoc
     },
     rules: {
       'jsdoc/check-access': 'warn',
@@ -22,7 +22,7 @@ export const jsdoc = (): Config[] => [
       'jsdoc/require-property-name': 'warn',
       'jsdoc/require-returns-check': 'warn',
       'jsdoc/require-returns-description': 'warn',
-      'jsdoc/require-yields-check': 'warn',
-    },
-  },
+      'jsdoc/require-yields-check': 'warn'
+    }
+  }
 ]
