@@ -1,6 +1,6 @@
 {
   "name": "@kolhe/eslint-config",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "packageManager": "yarn@1.22.22",
   "description": "One eslint config to rule them all",
   "type": "module",
@@ -34,9 +34,9 @@
     "format": "prettier --write .",
     "lint": "eslint",
     "lint:fix": "yarn run lint --fix",
-    "release": "bumpp && yarn publish",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "yarn run build"
+    "prerelease": "yarn run lint && yarn run typecheck && yarn run build",
+    "release": "yarn run changelogen --release --push"
   },
   "peerDependencies": {
     "eslint": "^9.5.0"
@@ -75,6 +75,7 @@
     "@unocss/eslint-plugin": "^66.1.3",
     "ansis": "^4.1.0",
     "bumpp": "^10.1.1",
+    "changelogen": "^0.6.1",
     "eslint": "^9.28.0",
     "eslint-typegen": "^2.2.0",
     "prettier": "^3.5.3",
