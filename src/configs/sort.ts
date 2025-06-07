@@ -1,8 +1,8 @@
 import { pluginPerfectionist } from '../plugins'
 
-import type { Linter } from 'eslint'
+import type { Config } from '../types'
 
-export const sortPackageJson: Linter.Config[] = [
+export const sortPackageJson = (): Config[] => [
   {
     files: ['**/package.json'],
     name: 'config/sort/package.json',
@@ -54,9 +54,11 @@ export const sortPackageJson: Linter.Config[] = [
             'devDependencies',
             'engines',
             'config',
-            'overrides',
             'pnpm',
+            'overrides',
+            'resolutions',
             'husky',
+            'simple-git-hooks',
             'lint-staged',
             'eslintConfig',
             'prettier',
@@ -73,14 +75,14 @@ export const sortPackageJson: Linter.Config[] = [
         },
         {
           order: { type: 'asc' },
-          pathPattern: '^(?:resolutions|overrides|pnpm.overrides)$',
+          pathPattern: String.raw`^(?:resolutions|overrides|pnpm\.overrides)$`,
         },
       ],
     },
   },
 ]
 
-export const sortTsconfig: Linter.Config[] = [
+export const sortTsconfig = (): Config[] => [
   {
     files: ['**/tsconfig.json', '**/tsconfig.*.json'],
     name: 'config/sort/tsconfig',
@@ -205,7 +207,57 @@ export const sortTsconfig: Linter.Config[] = [
   },
 ]
 
-export const sortImports: Linter.Config[] = [
+export const sortPnpmWorkspace = (): Config[] => [
+  {
+    files: ['**/pnpm-workspace.yaml'],
+    name: 'config/sort/pnpm-workspace',
+    rules: {
+      'yml/sort-keys': [
+        'error',
+        {
+          order: [
+            'packages',
+            'overrides',
+            'patchedDependencies',
+            'hoistPattern',
+            'defines',
+            'catalog',
+            'catalogs',
+
+            'allowedDeprecatedVersions',
+            'allowNonAppliedPatches',
+            'configDependencies',
+            'ignoredBuiltDependencies',
+            'ignoredOptionalDependencies',
+            'neverBuiltDependencies',
+            'onlyBuiltDependencies',
+            'onlyBuiltDependenciesFile',
+            'packageExtensions',
+            'peerDependencyRules',
+            'supportedArchitectures',
+          ],
+          pathPattern: '^$',
+        },
+        {
+          allowLineSeparatedGroups: true,
+          order: { type: 'asc' },
+          pathPattern: '^catalog$',
+        },
+        {
+          order: { type: 'asc' },
+          pathPattern: `^catalogs$`,
+        },
+        {
+          allowLineSeparatedGroups: true,
+          order: { type: 'asc' },
+          pathPattern: String.raw`^catalogs\..+$`,
+        },
+      ],
+    },
+  },
+]
+
+export const sortImports = (): Config[] => [
   {
     name: 'config/sort/imports',
     plugins: {
@@ -231,7 +283,7 @@ export const sortImports: Linter.Config[] = [
             'side-effect',
             'side-effect-style',
           ],
-          internalPattern: ['~/**', '@/**', '#**'],
+          internalPattern: ['^[~@#]/.*'],
           newlinesBetween: 'ignore',
         },
       ],

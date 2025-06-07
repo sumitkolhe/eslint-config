@@ -1,15 +1,14 @@
 import globals from 'globals'
-import { isInEditor } from '../env'
-import { configJs, pluginUnusedImports } from '../plugins'
+import { configJs,  pluginUnusedImports } from '../plugins'
 import type { Config } from '../types'
 
-export const restrictedSyntaxJs = [
+export const restrictedSyntaxJs: string[] = [
   'ForInStatement',
   'LabeledStatement',
   'WithStatement',
 ]
 
-export const javascript: Config[] = [
+export const javascript = (): Config[] => [
   { ...configJs.configs.recommended, name: 'config/js/recommended' },
   {
     languageOptions: {
@@ -78,7 +77,7 @@ export const javascript: Config[] = [
       'prefer-template': 'error',
       'require-await': 'error',
       'unicode-bom': ['error', 'never'],
-      'unused-imports/no-unused-imports': isInEditor ? 'off' : 'error',
+      'unused-imports/no-unused-imports': 'warn',
       'unused-imports/no-unused-vars': [
         'error',
         { args: 'after-used', ignoreRestSiblings: true },

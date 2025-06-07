@@ -1,7 +1,7 @@
 import { pluginUnicorn } from '../plugins'
 import type { Config } from '../types'
 
-export const unicorn: Config[] = [
+export const unicorn = (): Config[] => [
   {
     name: 'config/unicorn',
     plugins: {
@@ -9,6 +9,7 @@ export const unicorn: Config[] = [
     },
     rules: {
       'unicorn/catch-error-name': 'error',
+      'unicorn/consistent-date-clone': 'error',
       'unicorn/consistent-empty-array-spread': 'error',
       'unicorn/consistent-existence-index-check': 'error',
       'unicorn/consistent-function-scoping': [
@@ -31,12 +32,11 @@ export const unicorn: Config[] = [
       // disabled for better bundle size
       // 'unicorn/no-array-callback-reference': 'error',
       'unicorn/no-array-method-this-argument': 'error',
-      'unicorn/no-array-push-push': 'error',
       'unicorn/no-await-in-promise-methods': 'error',
       'unicorn/no-console-spaces': 'error',
       'unicorn/no-for-loop': 'error',
       'unicorn/no-hex-escape': 'error',
-      'unicorn/no-instanceof-array': 'error',
+      'unicorn/no-instanceof-builtins': 'error',
       'unicorn/no-invalid-remove-event-listener': 'error',
       'unicorn/no-lonely-if': 'error',
       'unicorn/no-negation-in-equality-check': 'error',
@@ -44,7 +44,10 @@ export const unicorn: Config[] = [
       'unicorn/no-new-buffer': 'error',
       'unicorn/no-single-promise-in-promise-methods': 'error',
       'unicorn/no-static-only-class': 'error',
+      'unicorn/no-unnecessary-array-flat-depth': 'error',
+      'unicorn/no-unnecessary-array-splice-count': 'error',
       'unicorn/no-unnecessary-await': 'error',
+      'unicorn/no-unnecessary-slice-end': 'error',
       'unicorn/no-zero-fractions': `error`,
       'unicorn/prefer-add-event-listener': 'error',
       'unicorn/prefer-array-find': 'error',
@@ -72,6 +75,7 @@ export const unicorn: Config[] = [
       'unicorn/prefer-query-selector': 'error',
       'unicorn/prefer-reflect-apply': 'error',
       'unicorn/prefer-regexp-test': 'error',
+      'unicorn/prefer-single-call': 'error',
       'unicorn/prefer-string-raw': 'error',
       'unicorn/prefer-string-replace-all': 'error',
       'unicorn/prefer-string-slice': 'error',
