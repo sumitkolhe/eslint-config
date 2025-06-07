@@ -1,4 +1,3 @@
-// import { config } from './dist/index.js'
 import { config } from './src/index'
 
 export default config(
