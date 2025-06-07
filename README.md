@@ -1,40 +1,42 @@
 # @kolhe/eslint-config [![npm](https://img.shields.io/npm/v/@kolhe/eslint-config.svg)](https://npmjs.com/package/@kolhe/eslint-config)
 
-One Eslint Config to rule them all. Supports JavaScript, TypeScript, Vue 2, Vue 3, Prettier out of the box.
+One Eslint Config to rule them all. Supports JavaScript, TypeScript, Vue 3, Prettier and much more out of the box.
 
 ## Features
 
 - Format with Prettier.
-- Designed to work with TypeScript, Vue 2 and 3 out-of-box.
+- Designed to work with TypeScript, Vue out-of-box.
 - Support JSON(5), YAML, Markdown...
 - Sort imports, `package.json`, `tsconfig.json`...
 - [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
+- Ignores common files like `dist`, `node_modules`, `coverage`, and files in `.gitignore`.
 - Reasonable defaults, best practices, only one-line of config
+- Reasonable strict, but with better code quality.
 
 ## Install
 
 ```bash
-npm i -D @kolhe/eslint-config
+yarn add -D @kolhe/eslint-config
 ```
 
-Require Node.js >= 18.18, and ESLint >= 8.56.0.
+Require Node.js >= 18.18, and ESLint >= 9.5.0.
 
 ## Usage
 
 ```js
 import { config } from '@kolhe/eslint-config'
 export default config(
-  [
-    /* your custom config */
-  ],
   // Features: it'll detect installed dependency and enable necessary features automatically
   {
     prettier: true,
     markdown: true,
     vue: true, // auto detection
     unocss: false // auto detection
-  }
-)
+  },
+  [
+    /* your custom config */
+  ]
+).removeRules('foo/bar') // see more in https://github.com/antfu/eslint-flat-config-utils
 ```
 
 ### Presets
@@ -60,14 +62,6 @@ export default presetAll
 ```
 
 See [preset.ts](./src/presets.ts) for more details.
-
-### VSCode
-
-```jsonc
-{
-  "eslint.experimental.useFlatConfig": true
-}
-```
 
 ## License
 
