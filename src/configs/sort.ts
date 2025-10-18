@@ -5,7 +5,7 @@ import type { Config } from '../types'
 export const sortPackageJson = (): Config[] => [
   {
     files: ['**/package.json'],
-    name: 'config/sort/package.json',
+    name: 'eslintConfig/sort/package.json',
     rules: {
       'jsonc/sort-array-values': [
         'error',
@@ -205,7 +205,7 @@ export const sortTsconfig = (): Config[] => [
 export const sortPnpmWorkspace = (): Config[] => [
   {
     files: ['**/pnpm-workspace.yaml'],
-    name: 'config/sort/pnpm-workspace',
+    name: 'eslintConfig/sort/pnpm-workspace',
     rules: {
       'yml/sort-keys': [
         'error',
@@ -254,7 +254,7 @@ export const sortPnpmWorkspace = (): Config[] => [
 
 export const sortImports = (): Config[] => [
   {
-    name: 'config/sort/imports',
+    name: 'eslintConfig/sort/imports',
     plugins: {
       perfectionist: pluginPerfectionist
     },

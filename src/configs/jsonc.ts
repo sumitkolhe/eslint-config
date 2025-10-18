@@ -9,7 +9,7 @@ export const jsonc = (): Config[] => [
     languageOptions: {
       parser: parserJsonc
     },
-    name: 'config/json',
+    name: 'eslintConfig/json',
     plugins: {
       jsonc: pluginJsonc as any
     },

@@ -5,14 +5,14 @@ import type { Config } from '../types'
 export const specialCases = (): Config[] => [
   {
     files: ['**/scripts/*', '**/cli.*'],
-    name: 'config/special/cli',
+    name: 'eslintConfig/special/cli',
     rules: {
       'no-console': 'off'
     }
   },
   {
     files: [`**/*.{test,spec}.${GLOB_SRC_EXT}`],
-    name: 'config/special/tests',
+    name: 'eslintConfig/special/tests',
     rules: {
       'no-unused-expressions': 'off',
       'unicorn/consistent-function-scoping': 'off'
@@ -27,7 +27,7 @@ export const specialCases = (): Config[] => [
       `${GLOB_MARKDOWN}/**`,
       '**/.prettierrc*'
     ],
-    name: 'config/special/allow-default-export',
+    name: 'eslintConfig/special/allow-default-export',
     plugins: {
       import: pluginImport
     },
@@ -37,14 +37,14 @@ export const specialCases = (): Config[] => [
   },
   {
     files: ['**/ISSUE_TEMPLATE/**'],
-    name: 'config/special/github',
+    name: 'eslintConfig/special/github',
     rules: {
       'unicorn/filename-case': 'off'
     }
   },
   {
     files: [GLOB_JSX, GLOB_TSX],
-    name: 'config/special/components',
+    name: 'eslintConfig/special/components',
     rules: {
       'unicorn/no-anonymous-default-export': 'off'
     }

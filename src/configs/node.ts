@@ -3,7 +3,7 @@ import type { Config } from '../types'
 
 export const node = (): Config[] => [
   {
-    name: 'config/node',
+    name: 'eslintConfig/node',
     plugins: {
       node: pluginNode
     },

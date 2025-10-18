@@ -21,14 +21,14 @@ yarn add -D @kolhe/eslint-config
 
 Require Node.js >= 18.18, and ESLint >= 9.5.0.
 
-## Usage
+## Eslint Config Usage
 
 ```js
-import { config } from '@kolhe/eslint-config'
-export default config(
+import { eslintConfig } from '@kolhe/eslint-config'
+export default eslintConfig(
   // Features: it'll detect installed dependency and enable necessary features automatically
   {
-    prettier: true,
+    prettier: true, // to enable eslint prettier plugin
     markdown: true,
     vue: true, // auto detection
     unocss: false // auto detection
@@ -62,6 +62,31 @@ export default presetAll
 ```
 
 See [preset.ts](./src/presets.ts) for more details.
+
+## Prettier Config Usage
+
+This config also provides a Prettier config for code formatting. For IDE integration, CLI usage, or to configure Prettier independently, create a `prettier.config.js` file:
+
+```js
+// prettier.config.js
+import { prettierConfig } from '@kolhe/eslint-config'
+
+export default prettierConfig
+```
+
+Or extend it with your own customizations:
+
+```js
+// prettier.config.js
+import { prettierConfig } from '@kolhe/eslint-config'
+
+export default {
+  ...prettierConfig,
+  // Your custom overrides
+  semi: true,
+  singleQuote: false
+}
+```
 
 ## License
 

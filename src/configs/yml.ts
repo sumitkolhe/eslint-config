@@ -5,7 +5,7 @@ import type { Config } from '../types'
 
 export const yml = (): Config[] => [
   {
-    name: 'config/yaml/setup',
+    name: 'eslintConfig/yaml/setup',
     plugins: {
       yml: pluginYml as any
     }
@@ -15,7 +15,7 @@ export const yml = (): Config[] => [
     languageOptions: {
       parser: parserYml
     },
-    name: 'config/yaml/rules',
+    name: 'eslintConfig/yaml/rules',
     rules: {
       ...(pluginYml.configs.standard.rules as Rules),
       ...(pluginYml.configs.prettier.rules as Rules),

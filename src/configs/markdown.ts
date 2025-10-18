@@ -6,13 +6,13 @@ export const markdown = (): Config[] => [
   ...pluginMarkdown.configs.processor.map(
     (config): Config => ({
       ...(config as Config),
-      name: `config/${config.name || 'anonymous'}`
+      name: `eslintConfig/${config.name || 'anonymous'}`
     })
   ),
 
   {
     files: [`${GLOB_MARKDOWN}/${GLOB_SRC}`, `${GLOB_MARKDOWN}/${GLOB_VUE}`],
-    name: 'config/markdown-rules',
+    name: 'eslintConfig/markdown-rules',
     rules: {
       '@typescript-eslint/comma-dangle': 'off',
       '@typescript-eslint/consistent-type-imports': 'off',

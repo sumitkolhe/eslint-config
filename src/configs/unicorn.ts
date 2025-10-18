@@ -4,10 +4,10 @@ import type { Config } from '../types'
 export const unicorn = (): Config[] => [
   {
     ...pluginUnicorn.configs.unopinionated,
-    name: 'config/unicorn/unopinionated'
+    name: 'eslintConfig/unicorn/unopinionated'
   },
   {
-    name: 'config/unicorn',
+    name: 'eslintConfig/unicorn',
     rules: {
       'unicorn/catch-error-name': 'error',
       'unicorn/consistent-empty-array-spread': 'error',

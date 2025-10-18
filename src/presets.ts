@@ -77,7 +77,7 @@ export interface Options {
   command?: boolean
 }
 
-export function config(
+export function eslintConfig(
   options: Options = {},
   ...userConfigs: Awaitable<Arrayable<Config> | FlatConfigComposer<any, any> | Linter.Config[]>[]
 ): FlatConfigComposer<Config, ConfigNames> {

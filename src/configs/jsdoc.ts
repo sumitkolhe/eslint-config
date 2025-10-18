@@ -3,7 +3,7 @@ import type { Config } from '../types'
 
 export const jsdoc = (): Config[] => [
   {
-    name: 'config/jsdoc',
+    name: 'eslintConfig/jsdoc',
     plugins: {
       jsdoc: pluginJsdoc
     },

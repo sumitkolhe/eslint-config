@@ -5,7 +5,7 @@ import type { Config } from '../types'
 export const restrictedSyntaxJs: string[] = ['ForInStatement', 'LabeledStatement']
 
 export const javascript = (): Config[] => [
-  { ...configJs.configs.recommended, name: 'config/js/recommended' },
+  { ...configJs.configs.recommended, name: 'eslintConfig/js/recommended' },
   {
     languageOptions: {
       globals: {
@@ -21,7 +21,7 @@ export const javascript = (): Config[] => [
       },
       sourceType: 'module'
     },
-    name: 'config/js',
+    name: 'eslintConfig/js',
     plugins: {
       'unused-imports': pluginUnusedImports
     },
