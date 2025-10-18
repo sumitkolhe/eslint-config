@@ -1,6 +1,6 @@
-import { config } from './src/index'
+import { eslintConfig } from './src/index'
 
-export default config({ vue: true }).append([
+export default eslintConfig({ vue: true }).append([
   {
     files: ['src/**/*.ts'],
     rules: {

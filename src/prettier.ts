@@ -1,11 +1,14 @@
 import type { Config } from 'prettier'
 
-export const prettierConfig: Config = {
-  semi: false,
-  trailingComma: 'none',
-  singleQuote: true,
-  printWidth: 120,
-  tabWidth: 2,
+const config: Config = {
   arrowParens: 'always',
-  plugins: ['prettier-plugin-tailwindcss']
+  plugins: ['prettier-plugin-tailwindcss'],
+  printWidth: 120,
+  semi: false,
+  singleQuote: true,
+  tabWidth: 2,
+  trailingComma: 'none'
 }
+
+// eslint-disable-next-line import/no-default-export
+export default config

@@ -1,6 +1,5 @@
 # Changelog
 
-
 ## v3.0.1
 
 [compare changes](https://github.com/sumitkolhe/eslint-config/compare/v3.0.0...v3.0.1)
@@ -12,4 +11,3 @@
 ### ❤️ Contributors
 
 - Sumit Kolhe ([@sumitkolhe](https://github.com/sumitkolhe))
-
