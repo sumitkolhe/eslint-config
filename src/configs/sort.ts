@@ -61,7 +61,8 @@ export const sortPackageJson = (): Config[] => [
             'simple-git-hooks',
             'lint-staged',
             'eslintConfig',
-            'prettier'
+            'prettier',
+            'tsdown'
           ],
           pathPattern: '^$'
         },
@@ -184,6 +185,7 @@ export const sortTsconfig = (): Config[] => [
             'stripInternal',
             /* Interop Constraints */
             'allowSyntheticDefaultImports',
+            'erasableSyntaxOnly',
             'esModuleInterop',
             'forceConsistentCasingInFileNames',
             'isolatedModules',

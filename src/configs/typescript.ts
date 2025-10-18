@@ -1,10 +1,11 @@
+import { defineConfig } from 'eslint/config'
 import { GLOB_JS, GLOB_TS, GLOB_TSX } from '../globs'
 import { tseslint } from '../plugins'
 import type { Rules } from '../typegen'
 import type { Config } from '../types'
 import { restrictedSyntaxJs } from './javascript'
 
-export const typescriptCore = tseslint.config({
+export const typescriptCore: Config[] = defineConfig({
   extends: [...tseslint.configs.recommended],
   files: [GLOB_TS, GLOB_TSX],
   name: 'config/typescript',
@@ -39,13 +40,13 @@ export const typescriptCore = tseslint.config({
 
     // handled by unused-imports/no-unused-imports
     '@typescript-eslint/no-unused-vars': 'off',
-
+    '@typescript-eslint/no-useless-constructor': 'error',
     '@typescript-eslint/prefer-as-const': 'warn',
     '@typescript-eslint/prefer-literal-enum-member': ['error', { allowBitwiseExpressions: true }],
 
     'no-restricted-syntax': ['error', ...restrictedSyntaxJs, 'TSEnumDeclaration[const=true]']
   } satisfies Rules
-}) as Config[]
+})
 
 export const typescript = (): Config[] => [
   ...typescriptCore,

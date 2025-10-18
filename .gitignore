@@ -4,5 +4,3 @@ dist
 .DS_Store
 *.log
 .eslint-config-inspector
-.vercel
-src/typegen.ts

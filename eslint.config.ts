@@ -13,5 +13,8 @@ export default config({ vue: true }).append([
       'perfectionist/sort-imports': 'off',
       'perfectionist/sort-named-imports': 'off'
     }
+  },
+  {
+    ignores: ['src/typegen.ts']
   }
 ])

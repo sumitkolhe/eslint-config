@@ -94,6 +94,7 @@ export const vue = (): Config[] => [
       'vue/no-constant-condition': 'warn',
       'vue/no-empty-pattern': 'error',
       'vue/no-loss-of-precision': 'error',
+      'vue/no-ref-as-operand': 'off',
       'vue/no-unused-refs': 'error',
       'vue/no-useless-v-bind': 'error',
 
@@ -110,7 +111,8 @@ export const vue = (): Config[] => [
       'vue/padding-line-between-blocks': ['error', 'always'],
       'vue/prefer-template': 'error',
       'vue/require-default-prop': 'off',
-      'vue/require-prop-types': 'off'
+      'vue/require-prop-types': 'off',
+      'vue/return-in-computed-property': ['error', { treatUndefinedAsUnspecified: false }]
     }
   },
   ...reactivityTransform()

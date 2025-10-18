@@ -2,7 +2,7 @@ import globals from 'globals'
 import { configJs, pluginUnusedImports } from '../plugins'
 import type { Config } from '../types'
 
-export const restrictedSyntaxJs: string[] = ['ForInStatement', 'LabeledStatement', 'WithStatement']
+export const restrictedSyntaxJs: string[] = ['ForInStatement', 'LabeledStatement']
 
 export const javascript = (): Config[] => [
   { ...configJs.configs.recommended, name: 'config/js/recommended' },
@@ -10,7 +10,7 @@ export const javascript = (): Config[] => [
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...globals.es2021,
+        ...globals.es2026,
         ...globals.node
       },
       parserOptions: {
@@ -49,8 +49,14 @@ export const javascript = (): Config[] => [
         }
       ],
       'no-unused-vars': 'off',
+      'no-useless-call': 'error',
+      'no-useless-computed-key': 'error',
+      'no-useless-constructor': 'error',
+      'no-useless-rename': 'error',
+      'no-var': 'error',
       'no-void': 'error',
       'object-shorthand': ['error', 'always', { avoidQuotes: true, ignoreConstructors: false }],
+      'one-var': ['error', { initialized: 'never' }],
       'prefer-arrow-callback': ['error', { allowNamedFunctions: false, allowUnboundThis: true }],
       'prefer-const': ['warn', { destructuring: 'all', ignoreReadBeforeAssign: true }],
       'prefer-exponentiation-operator': 'error',
