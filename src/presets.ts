@@ -1,5 +1,6 @@
 import { FlatConfigComposer, type Arrayable, type Awaitable } from 'eslint-flat-config-utils'
 import {
+  baseline,
   command,
   comments,
   deMorgan,
@@ -21,7 +22,8 @@ import {
   unicorn,
   unocss,
   vue,
-  yml
+  yml,
+  type BaselineOptions
 } from './configs'
 import { hasUnocss, hasVue } from './env'
 import type { ConfigNames } from './typegen'
@@ -61,20 +63,24 @@ export const presetAll = async (): Promise<Config[]> => [
   ...(await unocss()),
   ...prettier(),
   ...command(),
+  ...baseline(),
   ...specialCases()
 ]
 
+/// keep-sorted
 export interface Options {
-  /** Vue support. Auto-enable if detected. */
-  vue?: boolean
-  /** Prettier support. Default: true */
-  prettier?: boolean
-  /** markdown support. Default: true */
+  /** @default true */
+  baseline?: boolean | BaselineOptions
+  /** @default true */
+  command?: boolean
+  /** markdown support. @default true */
   markdown?: boolean
+  /** Prettier support. @default true */
+  prettier?: boolean
   /** UnoCSS support. Auto-enable if detected. */
   unocss?: boolean
-  sortKeys?: boolean
-  command?: boolean
+  /** Vue support. Auto-enable if detected. */
+  vue?: boolean
 }
 
 export function eslintConfig(
@@ -82,6 +88,7 @@ export function eslintConfig(
   ...userConfigs: Awaitable<Arrayable<Config> | FlatConfigComposer<any, any> | Linter.Config[]>[]
 ): FlatConfigComposer<Config, ConfigNames> {
   const {
+    baseline: enableBaseline = true,
     command: enableCommand = true,
     markdown: enableMarkdown = true,
     prettier: enablePrettier = true,
@@ -90,21 +97,14 @@ export function eslintConfig(
   } = options
 
   const configs: Awaitable<Config[]>[] = [presetBasic(), yml(), presetJsonc()]
-  if (enableVue) {
-    configs.push(vue())
-  }
-  if (enableMarkdown) {
-    configs.push(markdown())
-  }
-  if (enableUnocss) {
-    configs.push(unocss())
-  }
-  if (enablePrettier) {
-    configs.push(prettier())
-  }
-  if (enableCommand) {
-    configs.push(command())
-  }
+
+  if (enableBaseline) configs.push(baseline(typeof enableBaseline === 'object' ? enableBaseline : {}))
+  if (enableVue) configs.push(vue())
+  if (enableMarkdown) configs.push(markdown())
+  if (enableUnocss) configs.push(unocss())
+  if (enablePrettier) configs.push(prettier())
+  if (enableCommand) configs.push(command())
+
   configs.push(specialCases())
 
   const composer = new FlatConfigComposer<Config, ConfigNames>(...configs, ...(userConfigs as any))

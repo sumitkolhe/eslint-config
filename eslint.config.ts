@@ -1,6 +1,11 @@
 import { eslintConfig } from './src/index'
 
-export default eslintConfig({ vue: true }).append([
+export default eslintConfig({
+  vue: true,
+  baseline: {
+    ignoreFeatures: ['top-level-await']
+  }
+}).append(
   {
     files: ['src/**/*.ts'],
     rules: {
@@ -17,4 +22,4 @@ export default eslintConfig({ vue: true }).append([
   {
     ignores: ['src/typegen.ts']
   }
-])
+)

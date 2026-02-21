@@ -1,31 +1,8 @@
 import { GLOB_VUE } from '../globs'
 import { parserVue, pluginVue, tseslint } from '../plugins'
-import type { Config } from '../types'
 import { typescriptCore } from './typescript'
+import type { Config } from '../types'
 import type { ESLint } from 'eslint'
-
-export const reactivityTransform = (): Config[] => [
-  {
-    languageOptions: {
-      globals: {
-        $: 'readonly',
-        $$: 'readonly',
-        $computed: 'readonly',
-        $customRef: 'readonly',
-        $ref: 'readonly',
-        $shallowRef: 'readonly',
-        $toRef: 'readonly'
-      }
-    },
-    name: 'eslintConfig/vue/reactivity-transform',
-    plugins: {
-      vue: pluginVue
-    },
-    rules: {
-      'vue/no-setup-props-reactivity-loss': 'off'
-    }
-  }
-]
 
 const vueTs: Config[] = typescriptCore
   .filter((config) => config.name !== 'typescript-eslint/base')
@@ -64,6 +41,8 @@ export const vue = (): Config[] => [
     processor: pluginVue.processors['.vue'],
     rules: {
       ...recommendedRules,
+
+      'no-useless-assignment': 'off',
 
       'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
       'vue/component-name-in-template-casing': [
@@ -114,6 +93,5 @@ export const vue = (): Config[] => [
       'vue/require-prop-types': 'off',
       'vue/return-in-computed-property': ['error', { treatUndefinedAsUnspecified: false }]
     }
-  },
-  ...reactivityTransform()
+  }
 ]

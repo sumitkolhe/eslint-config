@@ -14,6 +14,7 @@ export const specialCases = (): Config[] => [
     files: [`**/*.{test,spec}.${GLOB_SRC_EXT}`],
     name: 'eslintConfig/special/tests',
     rules: {
+      'baseline-js/use-baseline': 'off',
       'no-unused-expressions': 'off',
       'unicorn/consistent-function-scoping': 'off'
     }
@@ -22,7 +23,7 @@ export const specialCases = (): Config[] => [
     files: [
       `**/*config*.${GLOB_SRC_EXT}`,
       `**/{views,pages,routes,middleware,plugins,api,modules}/${GLOB_SRC}`,
-      `**/{index,vite,esbuild,rollup,rolldown,webpack,rspack,farm,unloader}.${GLOB_SRC_EXT}`,
+      `**/{index,vite,esbuild,rollup,rolldown,webpack,rspack,farm,unloader,nuxt}.${GLOB_SRC_EXT}`,
       '**/*.d.ts',
       `${GLOB_MARKDOWN}/**`,
       '**/.prettierrc*'
