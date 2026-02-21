@@ -1,5 +1,23 @@
 # Changelog
 
+## v3.3.0
+
+[compare changes](https://github.com/sumitkolhe/eslint-config/compare/v3.2.0...v3.3.0)
+
+### 🚀 Enhancements
+
+- Add and simplify rules ([5a524bf](https://github.com/sumitkolhe/eslint-config/commit/5a524bf))
+
+### 🩹 Fixes
+
+- Add platform for tsup config ([4b77fac](https://github.com/sumitkolhe/eslint-config/commit/4b77fac))
+- Remove redundant exports ([e1a34e3](https://github.com/sumitkolhe/eslint-config/commit/e1a34e3))
+- Import order ([8f3f801](https://github.com/sumitkolhe/eslint-config/commit/8f3f801))
+
+### ❤️ Contributors
+
+- Sumit Kolhe ([@sumitkolhe](https://github.com/sumitkolhe))
+
 ## v3.2.0
 
 [compare changes](https://github.com/sumitkolhe/eslint-config/compare/v3.0.1...v3.2.0)
